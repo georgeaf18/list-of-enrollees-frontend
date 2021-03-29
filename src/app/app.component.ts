@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { APIService } from './services/api.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,19 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'enrollee-rmc';
+  alertType = "success";
+  notificationMessage = ""
+
+  constructor(private api: APIService) { }
+
+  ngOnInit() {
+    this.api.notification.subscribe((res: any) => {
+      this.notificationMessage = res.message;
+      this.alertType = res.type
+
+      setTimeout(() => {
+        this.notificationMessage = '';
+      }, 6000 * 3)
+    })
+  }
 }

@@ -1,0 +1,18 @@
+<!-- <div *ngFor="let enrollee of enrolleeList">
+    <app-enrollee [enrollee]="enrollee"></app-enrollee>
+</div> -->
+
+<table class="table ">
+    <thead>
+        <tr>
+            <th>Enrollee</th>
+            <th>Date of Birth</th>
+            <th>Activation Status</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr app-enrollee *ngFor="let enrollee of enrolleeList" [enrollee]="enrollee">
+        </tr>
+    </tbody>
+</table>

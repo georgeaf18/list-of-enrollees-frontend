@@ -1,0 +1,21 @@
+<td (mouseenter)="showEditButton()" (mouseleave)="hideEditButton()">
+    <div class="d-flex">
+        <ngx-avatar class="pointer" [name]="enrollee.name" src="{{showEdit ? './../../assets/pencil.png' : ''}}"
+            (clickOnAvatar)="openEdit()">
+        </ngx-avatar>
+
+        <div class="ml-3">
+            {{enrollee.name}}
+            <span class="text-muted d-block">ID: {{enrollee.id}}</span>
+        </div>
+    </div>
+</td>
+
+<td (mouseenter)="showEditButton()" (mouseleave)="hideEditButton()">{{(enrollee.dateOfBirth | date ) || "N/A"}}</td>
+
+<td (mouseenter)=" showEditButton()" (mouseleave)="hideEditButton()">
+    <span [ngClass]="{'text-success': enrollee.active, 'text-danger': !enrollee.active}">
+        <i class="fa fa-circle" aria-hidden="true" style="font-size: 0.7rem"></i>
+        {{enrollee.active ? "Active" : "Inactive"}}
+    </span>
+</td>
